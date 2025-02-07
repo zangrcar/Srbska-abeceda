@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=3 uid="uid://djwocapcnvks8"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_nlsvk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lg4f5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mrr27"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_nlsvk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 478.0
+offset_bottom = 713.0
+color = Color(0.614689, 0.996802, 0.878737, 1)
+
+[node name="TargetLetter" type="Label" parent="."]
+offset_left = 12.0
+offset_top = 16.0
+offset_right = 403.0
+offset_bottom = 157.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_lg4f5")
+text = "Click the correct letter!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ButtonContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = 274.0
+offset_right = 511.0
+offset_bottom = 706.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="LetterButton1" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "A"
+
+[node name="LetterButton2" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "B"
+
+[node name="LetterButton3" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "C"
+
+[node name="LetterButton4" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "D"
+
+[node name="ResultLabel" type="Label" parent="."]
+offset_left = 115.0
+offset_top = 165.0
+offset_right = 369.0
+offset_bottom = 277.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 395.0
+offset_top = 23.0
+offset_right = 451.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mrr27")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mrr27")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mrr27")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_mrr27")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_mrr27")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mrr27")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mrr27")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_mrr27")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mrr27")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_mrr27")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mrr27")
+text = "X"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
